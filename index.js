@@ -28,6 +28,7 @@ fs.readFile('data.json', (err, data) => {                                       
                     else if (25 <= bmi && bmi <= 29.9) {
                         objData[i].BMICategory = "Overweight";
                         objData[i].Healthrisk = "Enhanced risk";
+                        objData[objData.length - 1].TotalOverWeight += 1;
                     }
                     else if (30 <= bmi && bmi <= 34.9) {
                         objData[i].BMICategory = "Moderately obese";
