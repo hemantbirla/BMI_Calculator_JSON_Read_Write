@@ -44,6 +44,15 @@ fs.readFile('data.json', (err, data) => {                                       
                     }
                 }
             }
+            const newData = JSON.stringify(objData, null, 4);
+            fs.writeFile('data.json', newData, err => {                      // write data in JSON
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    console.log("Writting in JSON file");
+                }
+            });
         }
         catch (err) {
             console.log('Error parsing JSON', err);
