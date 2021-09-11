@@ -51,6 +51,9 @@ fs.readFile('data.json', (err, data) => {                                       
                 }
                 else {
                     console.log("Writting in JSON file");
+                    let newdata = fs.readFileSync('data.json');
+                    let data = JSON.parse(newdata);
+                    console.table(data);                                   // for printing new entered data in Tabuler form
                 }
             });
         }
