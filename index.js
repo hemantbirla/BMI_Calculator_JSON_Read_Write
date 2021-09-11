@@ -16,7 +16,31 @@ fs.readFile('data.json', (err, data) => {                                       
                     var height = objData[i].HeightCm / 100;
                     var weight = objData[i].WeightKg;
                     var bmi = (weight / (height * height));
-                    console.log(bmi);
+                    objData[i].BMIRange = bmi;
+                    if (bmi <= 18.4) {
+                        objData[i].BMICategory = "Underweight";
+                        objData[i].Healthrisk = "Malnutrition risk";
+                    }
+                    else if (18.5 <= bmi && bmi <= 24.9) {
+                        objData[i].BMICategory = "Normal weight";
+                        objData[i].Healthrisk = "Low risk";
+                    }
+                    else if (25 <= bmi && bmi <= 29.9) {
+                        objData[i].BMICategory = "Overweight";
+                        objData[i].Healthrisk = "Enhanced risk";
+                    }
+                    else if (30 <= bmi && bmi <= 34.9) {
+                        objData[i].BMICategory = "Moderately obese";
+                        objData[i].Healthrisk = "Medium risk";
+                    }
+                    else if (35 <= bmi && bmi <= 39.9) {
+                        objData[i].BMICategory = "Severely obese";
+                        objData[i].Healthrisk = "High risk";
+                    }
+                    else {
+                        objData[i].BMICategory = "Veryseverely obese";
+                        objData[i].Healthrisk = "Very high risk";
+                    }
                 }
             }
         }
