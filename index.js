@@ -64,7 +64,11 @@ fs.readFile('data.json', (err, data) => {                                       
                     console.log("Writting in JSON file");
                     let newdata = fs.readFileSync('data.json');
                     let data = JSON.parse(newdata);
-                    console.table(data);                                   // for printing new entered data in Tabuler form
+                    console.table(data.Gender,data.HeightCm,data.WeightKg,
+                        data,BMIRange,data.BMICategory,data.Healthrisk);      // for printing new entered data in Tabuler form
+                    console.log("Total of BMI Category");
+                    console.table(data.TotalUnderweight,data.TotalNormalweight,data.TotalOverweight,
+                        data.TotalModeratelyobese,data.TotalSeverelyobese,data.TotalVeryseverelyobese);
                 }
             });
         }
