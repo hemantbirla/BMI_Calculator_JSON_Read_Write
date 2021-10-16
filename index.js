@@ -7,7 +7,12 @@ fs.readFile('data.json', (err, data) => {                                       
         try {
             let objData = JSON.parse(data);
             console.table(objData);                                            //printing data of JSON in tabular form    
-            if (objData[objData.length - 1].TotalOverWeight == undefined) {     //to avoid repeataion of prev. data when calculating new entered data
+            if (objData[objData.length - 1].TotalUnderweight == undefined || 
+                objData[objData.length - 1].TotalNormalweight == undefined ||
+                objData[objData.length - 1].TotalOverWeight == undefined ||
+                objData[objData.length - 1].TotalModeratelyobese == undefined ||
+                objData[objData.length - 1].TotalSeverelyobese == undefined ||
+                objData[objData.length - 1].TotalVeryseverelyobese == undefined) {     //to avoid repeataion of prev. data when calculating new entered data
                 objData.push({ "TotalOverWeight": 0 });
             }
             for (var i = 0; i < objData.length - 1; i++) {
